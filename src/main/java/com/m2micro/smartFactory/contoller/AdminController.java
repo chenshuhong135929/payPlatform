@@ -1,6 +1,7 @@
 package com.m2micro.smartFactory.contoller;
 
 import com.m2micro.smartFactory.bo.AdminUserBo;
+import com.m2micro.smartFactory.bo.PageBo;
 import com.m2micro.smartFactory.constants.PublicConstant;
 import com.m2micro.smartFactory.service.AdminUserService;
 import com.m2micro.smartFactory.utils.PageModel;
@@ -93,14 +94,16 @@ public class AdminController {
     }
 
     /*
-     * 修改/添管理员
+     * 分页获取数据
      * */
     @PostMapping("/pageAdminUser")
     public WebResultVo pageAdminUser(String searchContent,Integer pageNo,Integer pageSize){
         try {
-            PageModel<AdminUserListVo> pageModel = this.adminUserService.findAdminListVo(searchContent,pageNo,pageSize);
+
+            PageModel<AdminUserListVo> pageModel = this.adminUserService.findAdminListVo(searchContent,new PageBo(pageSize,pageNo));
             return WebResultVo.getInstance().buildingSuccess(pageModel);
         }catch (Exception e){
+            e.printStackTrace();
             return WebResultVo.getInstance().building(WebResultVoEnum.ERROR);
         }
 

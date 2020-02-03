@@ -1,6 +1,7 @@
 package com.m2micro.smartFactory.service.impl;
 
 import com.m2micro.smartFactory.bo.AdminUserBo;
+import com.m2micro.smartFactory.bo.PageBo;
 import com.m2micro.smartFactory.dao.AdminDao;
 import com.m2micro.smartFactory.dao.AdminUserDao;
 import com.m2micro.smartFactory.enums.Datastatus;
@@ -59,7 +60,7 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     }
     @Override
-    public PageModel<AdminUserListVo> findAdminListVo(String searchContent, Integer pageNo, Integer pageSize)  throws  Exception{
+    public PageModel<AdminUserListVo> findAdminListVo(String searchContent, PageBo pageBo)  throws  Exception{
         Specification<AdminUser> specification = new Specification<AdminUser>() {
             @Override
             public Predicate toPredicate(Root<AdminUser> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
@@ -68,7 +69,7 @@ public class AdminUserServiceImpl implements AdminUserService {
             }
         };
 
-        Page<AdminUser> adminPage = adminUserDao.findAll(specification, PageRequest.of(pageNo - 1,pageSize, Sort.by(Sort.Direction.DESC,"id")));
+        Page<AdminUser> adminPage = adminUserDao.findAll(specification, PageRequest.of(pageBo.getPageNo() - 1,pageBo.getPageSize(), Sort.by(Sort.Direction.DESC,"id")));
         List<AdminUserListVo> adminUserListVos = new ArrayList<>();
         adminPage.forEach(adminUser -> {
             AdminUserListVo adminUserListVo = new AdminUserListVo();
@@ -78,7 +79,7 @@ public class AdminUserServiceImpl implements AdminUserService {
             adminUserListVo.setRemark(adminUser.getRemark());
             adminUserListVos.add(adminUserListVo);
         });
-        PageModel<AdminUserListVo> pageModel = new PageModel<AdminUserListVo>(pageSize,pageNo,adminUserListVos,adminPage.getTotalElements());
+        PageModel<AdminUserListVo> pageModel = new PageModel<AdminUserListVo>(pageBo.getPageSize(),pageBo.getPageNo(),adminUserListVos,adminPage.getTotalElements());
         return pageModel;
     }
 }

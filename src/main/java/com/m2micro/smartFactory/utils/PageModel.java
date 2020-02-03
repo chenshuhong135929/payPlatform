@@ -3,7 +3,7 @@ package com.m2micro.smartFactory.utils;
 import java.util.List;
 
 public class PageModel<T> {
-    private Integer pageSize;
+    private Integer pageSize ;
     private Integer pageNo;
     private List<T> data;
     private Long total;
