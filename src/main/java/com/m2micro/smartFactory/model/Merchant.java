@@ -30,6 +30,11 @@ public class Merchant implements Serializable {
     private String dataDictionary;//数据字典
     private String explainContent;//解释内容
     private String doBusiness;//经营业务
+    private String status;//商户状态 MerchantStatusEnum 营业 休息
+    private String disableStatus;//商户状态  DisableStatusEnum
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_id")
+    private Admin admin;//管理员
 
     public Merchant() {
     }
@@ -144,5 +149,29 @@ public class Merchant implements Serializable {
 
     public void setDoBusiness(String doBusiness) {
         this.doBusiness = doBusiness;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDisableStatus() {
+        return disableStatus;
+    }
+
+    public void setDisableStatus(String disableStatus) {
+        this.disableStatus = disableStatus;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 }

@@ -6,3 +6,9 @@ spring:
       jackson:
         date-format: yyyy-MM-dd HH:mm:ss #如果使用字符串表示，用这行设置格式
         timezone: GMT+8
+  messages:
+    basename: i18n.i18n
+  jackson:
+    date-format: yyyy-MM-dd
+  mvc:
+    date-format:  yyyy-MM-dd

@@ -1,8 +1,10 @@
 package com.m2micro.smartFactory.service;
 
+import com.m2micro.smartFactory.bo.MerchantBO;
 import com.m2micro.smartFactory.bo.PageBo;
 import com.m2micro.smartFactory.model.Merchant;
 import com.m2micro.smartFactory.utils.PageModel;
+import com.m2micro.smartFactory.vo.MerchantListVo;
 import com.m2micro.smartFactory.vo.WebResultVo;
 
 public interface MerchantService {
@@ -12,7 +14,7 @@ public interface MerchantService {
      * @param merchant
      * @return
      */
-    WebResultVo editMerchant(Merchant merchant);
+    WebResultVo editMerchant(MerchantBO merchant);
 
     /**
      *
@@ -22,7 +24,7 @@ public interface MerchantService {
      * @return
      * @throws Exception
      */
-    PageModel<Merchant>pageMerchant(String searchContent, PageBo pageBo) throws  Exception;
+    PageModel<MerchantListVo>pageMerchant(String searchContent, PageBo pageBo) throws  Exception;
 
     /**
      * 删除
@@ -31,4 +33,13 @@ public interface MerchantService {
      */
     WebResultVo deleteMerchant(Integer id);
 
+    /**
+     *
+     * 修改冻结状态
+     * @param disableStatus
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    void updateDisableStatus(String disableStatus, Integer id) throws  Exception;
 }

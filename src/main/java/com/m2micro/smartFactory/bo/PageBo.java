@@ -3,14 +3,14 @@ package com.m2micro.smartFactory.bo;
 import java.io.Serializable;
 
 public class PageBo implements Serializable {
-    private Integer pageSize = 20 ;
-    private Integer pageNo = 1;
+    private int pageSize = 10;
+    private int pageNo = 1;
 
-    public Integer getPageSize() {
+    public int getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(Integer pageSize) {
+    public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
 
@@ -18,13 +18,15 @@ public class PageBo implements Serializable {
         return pageNo;
     }
 
-    public void setPageNo(Integer pageNo) {
+    public void setPageNo(int pageNo) {
         this.pageNo = pageNo;
     }
 
     public PageBo(Integer pageSize, Integer pageNo) {
-        if(pageSize != null && pageNo != null){
+        if(pageSize != null){
             this.pageSize = pageSize;
+        }
+        if(pageNo != null){
             this.pageNo = pageNo;
         }
 
@@ -33,3 +35,7 @@ public class PageBo implements Serializable {
 
 
 }
+// docker-compose  down
+// docker images
+// docker rmi  IMAGE ID
+// docker-compose  up  -d
