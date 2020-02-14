@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.util.Locale;
 
 /*
@@ -65,7 +66,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/picture/**").addResourceLocations("file:E:/rentHouse/");
+       // registry.addResourceHandler("/picture/**").addResourceLocations("file:/usr/local/dockerdome/rentHouse/");
+        registry.addResourceHandler("/picture/**").addResourceLocations("file:"+ File.separator+"usr"+File.separator+"local"+File.separator+"dockerdome"+File.separator+"rentHouse"+File.separator+"");
+
     }
 
 }

@@ -2,7 +2,9 @@ package com.m2micro.smartFactory.contoller;
 
 import com.m2micro.smartFactory.bo.MerchantBO;
 import com.m2micro.smartFactory.bo.PageBo;
+import com.m2micro.smartFactory.constants.PublicConstant;
 import com.m2micro.smartFactory.enums.WebResultVoEnum;
+import com.m2micro.smartFactory.model.Admin;
 import com.m2micro.smartFactory.model.Merchant;
 import com.m2micro.smartFactory.service.FileService;
 import com.m2micro.smartFactory.service.MerchantService;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.jws.WebResult;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 商户控制层
@@ -37,7 +40,14 @@ public class MerchantController {
      * 修改/添加
      * */
     @PostMapping("/editMerchant")
-    public WebResultVo editAdminUser(MerchantBO merchantBO) {
+    public WebResultVo editAdminUser(MerchantBO merchantBO, HttpServletRequest request) {
+
+
+        Object admin  = request.getSession().getAttribute(PublicConstant.ADMINLOGINKEY);
+        if(admin != null){
+            Admin admin1Model = (Admin)admin;
+            merchantBO.setAdminId(admin1Model.getId());
+        }
 
         return  merchantService.editMerchant(merchantBO);
 
@@ -84,6 +94,9 @@ public class MerchantController {
         return      merchantService.deleteMerchant(id);
     }
 
+    /*
+    上传门户照片
+     */
     @RequestMapping("/uploadFile")
     public WebResultVo uploadFile(@RequestParam("file") MultipartFile file,Integer merchantId){
         FileVo fileVo = null;
@@ -95,6 +108,22 @@ public class MerchantController {
 
         }
         return WebResultVo.getInstance().buildingSuccess(fileVo);
+    }
+
+    /*
+    上传营业执照
+     */
+    @RequestMapping("/uploadBusinessLicenseFile")
+    public WebResultVo uploadBusinessLicenseFile(@RequestParam("file") MultipartFile file,Integer merchantId){
+        FileVo businessLicenseFileVo = null;
+        String fileDir = "businessLicense";
+        try {
+            String filename = FileUpload.writeUploadFile(file,fileDir);
+            businessLicenseFileVo =  fileService.saveBusinessLicensetFile("picture"+ "/"+fileDir + filename,filename,merchantId);
+        }catch (Exception e){
+
+        }
+        return WebResultVo.getInstance().buildingSuccess(businessLicenseFileVo);
     }
 
 

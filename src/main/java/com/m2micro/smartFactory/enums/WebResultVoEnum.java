@@ -4,6 +4,7 @@ public enum  WebResultVoEnum {
     SUCCESS(200,"请求成功"),
     ERROR(500,"服务器异常"),
     PARAMETERERROR(300,"参数异常"),
+    NOAUTHORITY(400,"参数异常"),
     ILLEGALOPERATION(600,"非法操作");
     private Integer code;
     private String message;

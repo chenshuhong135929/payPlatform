@@ -6,6 +6,7 @@ import com.m2micro.smartFactory.dao.MerchantDao;
 import com.m2micro.smartFactory.enums.DisableStatusEnum;
 import com.m2micro.smartFactory.enums.MerchantStatusEnum;
 import com.m2micro.smartFactory.enums.WebResultVoEnum;
+import com.m2micro.smartFactory.model.Admin;
 import com.m2micro.smartFactory.model.Merchant;
 import com.m2micro.smartFactory.service.FileService;
 import com.m2micro.smartFactory.service.MerchantService;
@@ -102,8 +103,14 @@ public class MerchantServiceImpl implements MerchantService {
             merchant.setDoBusiness(merchantBo.getDoBusiness());
             merchant.setStatus(MerchantStatusEnum.A.toString());
             merchant.setDisableStatus(DisableStatusEnum.A.toString());
+            if(merchantBo.getAdminId() != null){
+                Admin admin = new Admin();
+                admin.setId(merchantBo.getAdminId());
+                merchant.setAdmin(admin);
+            }
 
             merchantDao.save(merchant);
+            fileService.updateBindMerchantFile(merchant.getId(),merchantBo.getFileVos());
             return WebResultVo.getInstance().buildingSuccess();
         }
 
@@ -219,6 +226,8 @@ public class MerchantServiceImpl implements MerchantService {
                 merchantListVo.setAdminName(merchant.getAdmin().getNumber());
             }
              List<FileVo> fileVos =  fileService.findMerchantImageFile(merchant.getId());
+             FileVo fileVo = fileService.findBusinessLicensetFile(merchant.getId());
+            merchantListVo.setBusinessLicenseFileVo(fileVo);
             merchantListVo.setFileVos(fileVos);
             merchantListVos.add(merchantListVo);
         }

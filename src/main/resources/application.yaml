@@ -12,3 +12,17 @@ spring:
     date-format: yyyy-MM-dd
   mvc:
     date-format:  yyyy-MM-dd
+  servlet:
+    multipart:
+      enabled: true
+      #单个数据的大小
+      max-file-size: 100MB
+      #总数据的大小
+      max-request-size: 100MB
+web:
+  upload-path: /usr/local/dockerdome/rentHouse/
+  upload-path1: /usr/local/dockerdome/rentHouse
+resources:
+  static-locations: file:${web.upload-path},file:${web.upload-path1}
+
+

@@ -126,6 +126,6 @@ public class Md5SaltTool {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        System.out.println(getEncryptedPwd("1234567890"));
+        System.out.println(getEncryptedPwd("888888"));
     }
 }
