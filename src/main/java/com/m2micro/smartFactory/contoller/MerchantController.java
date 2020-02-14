@@ -1,5 +1,7 @@
 package com.m2micro.smartFactory.contoller;
 
+import com.m2micro.smartFactory.Component.FileUploadComponent;
+import com.m2micro.smartFactory.bo.FileBo;
 import com.m2micro.smartFactory.bo.MerchantBO;
 import com.m2micro.smartFactory.bo.PageBo;
 import com.m2micro.smartFactory.constants.PublicConstant;
@@ -8,7 +10,6 @@ import com.m2micro.smartFactory.model.Admin;
 import com.m2micro.smartFactory.model.Merchant;
 import com.m2micro.smartFactory.service.FileService;
 import com.m2micro.smartFactory.service.MerchantService;
-import com.m2micro.smartFactory.utils.FileUpload;
 import com.m2micro.smartFactory.utils.PageModel;
 import com.m2micro.smartFactory.vo.FileVo;
 import com.m2micro.smartFactory.vo.MerchantListVo;
@@ -34,6 +35,8 @@ public class MerchantController {
 
     @Autowired
     private MerchantService merchantService;
+    @Autowired
+    private FileUploadComponent fileUploadComponent;
     @Autowired
     private FileService fileService;
     /*
@@ -100,10 +103,10 @@ public class MerchantController {
     @RequestMapping("/uploadFile")
     public WebResultVo uploadFile(@RequestParam("file") MultipartFile file,Integer merchantId){
         FileVo fileVo = null;
-        String fileDir = "advert";
+        String fileDir = "hreadImage";
         try {
-            String filename = FileUpload.writeUploadFile(file,fileDir);
-            fileVo =  fileService.saveMerchantFile("picture"+ "/"+fileDir + filename,filename,merchantId);
+            FileBo fileBo = fileUploadComponent.writeUploadFile(file,fileDir);
+            fileVo =  fileService.saveMerchantFile(fileBo.getFilePath(),fileBo.getFileName(),merchantId);
         }catch (Exception e){
 
         }
@@ -118,8 +121,8 @@ public class MerchantController {
         FileVo businessLicenseFileVo = null;
         String fileDir = "businessLicense";
         try {
-            String filename = FileUpload.writeUploadFile(file,fileDir);
-            businessLicenseFileVo =  fileService.saveBusinessLicensetFile("picture"+ "/"+fileDir + filename,filename,merchantId);
+            FileBo fileBo = fileUploadComponent.writeUploadFile(file,fileDir);
+            businessLicenseFileVo =  fileService.saveBusinessLicensetFile(fileBo.getFilePath(),fileBo.getFileName(),merchantId);
         }catch (Exception e){
 
         }

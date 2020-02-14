@@ -3,6 +3,7 @@ package com.m2micro.smartFactory.webConfigs;
 import com.m2micro.smartFactory.Interceptions.adminInterception;
 import com.m2micro.smartFactory.constants.PublicConstant;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,10 @@ import java.util.Locale;
 * */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+    @Value("${fileuploadcomponent.realpath}")
+    private String filoadfilesystempath ;
+    @Value("${fileuploadcomponent.picture}")
+    private String picture;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new adminInterception()).addPathPatterns("/admin/*");
@@ -66,9 +71,24 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-       // registry.addResourceHandler("/picture/**").addResourceLocations("file:/usr/local/dockerdome/rentHouse/");
-        registry.addResourceHandler("/picture/**").addResourceLocations("file:"+ File.separator+"usr"+File.separator+"local"+File.separator+"dockerdome"+File.separator+"rentHouse"+File.separator+"");
+        registry.addResourceHandler( File.separator+picture+"**").addResourceLocations("file:"+filoadfilesystempath+"");//
+       // registry.addResourceHandler("/picture/**").addResourceLocations("file:"+ File.separator+"usr"+File.separator+"local"+File.separator+"dockerdome"+File.separator+"rentHouse"+File.separator+"");
 
     }
 
+    public String getFiloadfilesystempath() {
+        return filoadfilesystempath;
+    }
+
+    public void setFiloadfilesystempath(String filoadfilesystempath) {
+        this.filoadfilesystempath = filoadfilesystempath;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 }

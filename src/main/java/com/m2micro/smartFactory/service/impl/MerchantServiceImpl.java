@@ -26,10 +26,12 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional(rollbackOn = Exception.class)
 public class MerchantServiceImpl implements MerchantService {
 
     @Autowired
@@ -110,7 +112,10 @@ public class MerchantServiceImpl implements MerchantService {
             }
 
             merchantDao.save(merchant);
-            fileService.updateBindMerchantFile(merchant.getId(),merchantBo.getFileVos());
+           if(merchantBo.getFileVos() != null){
+               fileService.updateBindMerchantFile(merchant.getId(),merchantBo.getFileVos());
+           }
+
             return WebResultVo.getInstance().buildingSuccess();
         }
 
@@ -182,8 +187,9 @@ public class MerchantServiceImpl implements MerchantService {
             }
 
             merchantDao.save(merchantOld);
-            fileService.updateBindMerchantFile(merchantOld.getId(),merchantBo.getFileVos());
-
+           if(merchantBo.getFileVos() != null){
+                fileService.updateBindMerchantFile(merchantOld.getId(),merchantBo.getFileVos());
+            }
            return WebResultVo.getInstance().building(WebResultVoEnum.SUCCESS);
 
 
