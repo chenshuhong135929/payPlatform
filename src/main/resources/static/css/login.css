@@ -1,0 +1,79 @@
+.content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url('../images/loginBlog.jpg') ;
+}
+.content .loginContent{
+    width: 1192px;
+    height: 603px;
+    top:20%;
+    left: 20%;
+    position: absolute;
+}
+
+.content .loginContent .loginImageContext{
+    width: 50%;
+    height: 100%;
+    background-image: url("../images/lgoin_content.jpg");
+    float: left;
+}
+.content .loginContent .userinfo{
+    background-color: #ffffff;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.content .loginContent .userinfo .loginUserInfo{
+    width: 70%;
+    margin: 9% auto;
+}
+.content .loginContent .userinfo h2{
+    color: #b72735;
+    text-align: center;
+    font-size: 28px;
+    padding: 30px;
+}
+.content .loginContent .userinfo input{
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 45px;
+    margin-top: 26px;
+    border-radius:5px;
+    text-indent:70px;
+}
+
+
+.content .loginContent .userinfo p{
+    padding-top:20px;
+    text-align: right;
+
+}
+.content .loginContent .userinfo span{
+    padding-top:20px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.content .loginContent .userinfo span:hover{
+    cursor: pointer;
+}
+.content .loginContent .userinfo span a{
+    border-bottom: 1px solid;
+}
+.content .loginContent .userinfo .login_btn{
+    margin-top: 35px;
+    color:#ffff;
+    background: #b72735;
+    text-indent:0px;
+}
+.content .loginContent .userinfo .login_btn:hover{
+    cursor:pointer
+}
+.content .loginContent .userinfo .userInput{
+    background: url("../images/longUserIoc.jpg")  0% 70% no-repeat;
+}
+.content .loginContent .userinfo .passwordInput{
+    background: url("../images/loginPosswordIoc.jpg") 0% 10% no-repeat;
+}

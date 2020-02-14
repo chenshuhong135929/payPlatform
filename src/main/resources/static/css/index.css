@@ -1,0 +1,383 @@
+.index_top {
+    width: 100%;
+    height: 400px;
+    background: url("../images/indexTopBackground.jpg") no-repeat;
+
+}
+
+.index_top .userinfo {
+    width: 183px;
+    height: 80px;
+    background: #b72735;
+    text-align: center;
+    line-height: 80px;
+    font-size: 23px;
+    font-weight: bold;
+    color: #ffffff;
+    float: left;
+
+}
+
+.index_top .banner{
+    float: left;
+    color: #ffffff;
+    font-size: 23px;
+    line-height: 100px;
+    margin-left: 20%;
+
+}
+.index_top .banner li{
+    float: left;
+    margin-right: 83px;
+  }
+
+.index_bottom {
+    width: 100%;
+    min-height: 574px;
+    background: url("../images/indexBottomBackground.jpg") no-repeat;
+    position: absolute;
+}
+
+.index_bottom .index_content{
+    width: 1292px;
+    height: 650px;
+    background: #ffffff;
+    border-radius: 8px;
+    font-size: 14px;
+    position:absolute;
+    left: 50%;
+    top:40%;
+    transform:translate(-50%,-50%);
+
+
+}
+
+.index_bottom .index_content .content_search{
+    margin-left: 20px;
+    margin-top: 36px;
+    position: absolute;
+    width: 100%;
+    font-size: 13px;
+
+}
+.index_bottom .index_content .content_search .content_searchinp{
+    border: none;
+    height: 35px;
+    width: 280px;
+    background: #ebebeb;
+    font-size: 16px;
+    text-indent: 13px;
+    border-radius: 8px;
+
+
+}
+
+.index_bottom .index_content .content_search .content_searchbtn{
+    width: 78px;
+    height: 35px;
+    background: #267bda;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-left: 8px;
+}
+.index_bottom .index_content .content_search .content_searchbtn:hover{
+    cursor: pointer;
+}
+
+.index_bottom .index_content .content_search #createDataBox{
+    float: right;
+    margin-right: 15%;
+    width: 100px;
+    height: 35px;
+    border-radius: 20px;
+    background: #258cd8;
+    color: #ffffff;
+    font-size: 15px;
+}
+.index_bottom .index_content .content_search #createDataBox:hover{
+    cursor: pointer;
+}
+
+
+.index_bottom .index_content .content_list{
+    width: 85%;
+    height: 426px;
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 20px;
+}
+.index_bottom .index_content .content_list table{
+    width: 100%;
+    border-collapse:separate;
+    border-spacing:0px;
+    font-size: 16px;
+
+
+}
+
+.local{
+    float: left;
+    height: 100px;
+    font-size: 23px;
+    line-height: 100px;
+
+}
+
+.local .localLink{
+    border: 1px solid;
+    color: #ffffff;
+}
+.local .localLink :hover{
+    cursor: pointer;
+}
+
+.index_bottom .index_content .content_list  .listTable th {
+    background: #cb3948;
+    color: #ffffff;
+}
+.index_bottom .index_content .content_list  .listTable th ,td,tr{
+    text-align: center;
+    border: 1px solid #c8d6e8;
+    height: 43px;
+}
+
+.layui-laydate-content  th ,td,tr{
+    border: none;
+    height: 30px;
+}
+
+.index_bottom .index_content .content_list  .listTable th{
+
+    width: 10%;
+}
+
+
+
+
+.index_bottom .index_content .content_list table tr:first-child th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.index_bottom .index_content .content_list table tr:first-child th:last-child {
+    border-top-right-radius: 12px;
+}
+.index_bottom .index_content .content_list table tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+.index_bottom .index_content .content_list table tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+.index_bottom .index_content .content_list .tablePage  {
+    float: right;
+    margin-top: 10px;
+}
+.index_bottom .index_content .content_list .tablePage  li{
+    float: left;
+    width: 25px;
+    margin-left: 16px;
+    border: 1px solid #c8d6e8;
+    text-align: center;
+    line-height: 27px;
+    height: 27px;
+
+}
+.index_bottom .index_content .content_list .tablePage .active{
+    background: #cb3948;
+    color:#ffffff;
+}
+.index_bottom .index_content .content_list .tablePage li:hover{
+    cursor: pointer;
+}
+.index_bottom .index_content .content_list .tablePage  li:first-child , .index_bottom .index_content .content_list .tablePage li:last-child {
+    width: 55px;
+    border: none;
+}
+/*添加弹出框*/
+.addBoxContent{
+    padding: 10px;
+    background: #ededed;
+
+
+}
+.addBoxContent .infoinputDiv{
+    margin-top: 10px;
+}
+.addBoxContent input{
+    border-radius: 5px;
+    height: 31px;
+    width: 33%;
+    text-indent: 13px;
+}
+.addBoxContent .descriptiondiv{
+    margin-top: 10px;
+    height:  60px;
+}
+.addBoxContent .description{
+    width: 100%;
+    height: 60px;
+}
+
+.addBoxContent  .fileDiv h2{
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    text-indent: 30px;
+    line-height: 35px;
+    margin-top : 10px;
+}
+.addBoxContent  .fileDiv{
+    height: 130px;
+
+}
+
+.addBoxContent  .filesContent{
+    height: 85px;
+}
+.addBoxContent  .fileContent{
+    height: 85px;
+    background: #cecece;
+    width: 17%;
+    float: left;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+.addBoxContent  .fileContent:first-child{
+
+    margin-left: 0px;
+}
+.addBoxContent .saveAllBtn{
+    float: right;
+    width: 97px;
+    margin-right: 2%;
+    margin-top: 3%;
+    height: 25px;
+    color: #ffffff;
+    background: #2676dc;
+}
+
+.addBoxContent .saveAllBtn:hover{
+    cursor: pointer;
+}
+
+.addBoxContent  .fileAddContent{
+    height: 85px;
+    width: 17%;
+    float: left;
+    margin-left: 15px;
+    border-radius: 5px;
+    background: #eaeaea url("../images/addFileIoc.jpg") 50% 20%  no-repeat;
+    text-align: center;
+    line-height: 130px;
+
+}
+
+/*
+查看详情弹框
+ */
+.infoDetilsDiv{
+    width: 90%;
+    font-size: 16px;
+    margin: 20px auto;
+
+}
+.infoDetilsDiv span{
+    color: #000;
+
+}
+.infoDetilsDiv label{
+    padding-right: 20px;
+    width: 158px;
+    display: block;
+    float: left;
+
+}
+.infoDetilsDiv .infoName{
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+.infoDetilsDiv .doubleInfo{
+    margin-top: 20px;
+    height: 20px;
+}
+.infoDetilsDiv .doubleInfo div{
+    float: left;
+    width: 50%;
+}
+
+.infoDetilsDiv .oneInfo{
+    margin-top: 20px;
+
+}
+
+.infoDetilsDiv .filesTitle{
+    margin-top: 20px;
+}
+
+.infoDetilsDiv  .filesContent{
+    height: 85px;
+    margin-top:20px;
+}
+.infoDetilsDiv  .fileContent{
+    height: 85px;
+    background: #cecece;
+    width: 17%;
+    float: left;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+.infoDetilsDiv  .fileContent:first-child{
+    margin-left: 0px;
+}
+
+.bindMerchantFileBox{
+    width: 310px;
+    height: 250px;
+
+}
+.bindMerchantFileBox .bindMerchantFileDiv{
+    width: 230px;
+    height: 150px;
+    margin: 20px auto;
+    text-align: center;
+}
+.bindMerchantFileBox .bindMerchantFileDiv img{
+     display: block;
+    width: 100%;
+    height: 100%;
+ }
+
+.bindMerchantFileBox .bindMerchantFileBtn{
+    margin: 0px auto;
+    width: 230px;
+    height: 40px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.bindMerchantFileBox .bindMerchantFileBtn input{
+    display: block;
+
+    color: #ffffff;
+    font-size: 14px;
+    height: 30px;
+    border-radius: 5px;
+    width: 70px;
+
+}
+
+.bindMerchantFileBox .bindMerchantFileBtn input:first-child{
+
+
+    float: left;
+    background: #258cd8;
+
+}
+
+.bindMerchantFileBox .bindMerchantFileBtn input:last-child{
+    float: right;
+    color: #000;
+
+}

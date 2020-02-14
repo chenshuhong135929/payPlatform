@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{login.lognbtn}">登录</title>
+</head>
+<link href="css/base.css" th:href="@{css/base.css}" rel="stylesheet" type="text/css">
+<link href="css/login.css" th:href="@{css/login.css}" rel="stylesheet" type="text/css">
+<body>
+<div class="content">
+    <div class="loginContent">
+        <div class="loginImageContext">
+
+        </div>
+        <div class="userinfo">
+            <div class="loginUserInfo">
+                <h2 th:text="#{login.lognbtn}" id="setCookieBtn" local="en_US">登录 </h2>
+                <input type="text" th:placeholder="#{login.name}" placeholder = "请输入用户名" id="adminNumber" class="userInput" value=""/>
+                <input type="password" th:placeholder="#{login.password}"  placeholder = "请输入密码" id="adminPassword" class="passwordInput" value=""/>
+                <p th:text="#{login.forgetPassword}">忘记密码</p>
+                <input type="button" id="userLogin" class="login_btn" th:value="#{login.lognbtn}" value="登录"/>
+                <span>
+                    <a class="setCookieBtn">中文/English</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js" th:src="@{js/jquery-3.4.1.js}"></script>
+<script src="https://cdn.bootcss.com/layer/2.3/layer.js" th:src="@{js/layer-v3.1.1/layer/layer.js}"></script>
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" th:src="@{js/jquery.cookie-1.4.1.js}"></script>
+<script src="..js/base.js" th:src="@{js/base.js}"></script>
+<script src="../js/login.js" th:src="@{js/login.js}"></script>
+</body>

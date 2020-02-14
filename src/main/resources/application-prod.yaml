@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    hikari:
+      #自动提交
+      auto-commit: true
+      connection-test-query: SELECT 1
+      #等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 缺省:30秒 -->
+      connection-timeout: 30000
+      # 一个连接idle状态的最大时长（毫秒），超时则被释放（retired），缺省:10分钟 -->
+      idle-timeout: 600000
+      #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，
+      #建议设置比数据库超时时长少30秒，参考MySQL wait_timeout参数（show variables like '%timeout%';） -->
+      max-lifetime: 620000
+      #连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count) -->
+      maximum-pool-size: 30
+      #池中维护的最小空闲连接数
+      minimum-idle: 5
+      pool-name: DatebookHikariCP
+      read-only: false
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.112.186.155:3306/payPlatform?setUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      jackson:
+        date-format: yyyy-MM-dd HH:mm:ss #如果使用字符串表示，用这行设置格式
+        timezone: GMT+8
+  messages:
+    basename: i18n.i18n
+  jackson:
+    date-format: yyyy-MM-dd
+  mvc:
+    date-format:  yyyy-MM-dd
+  servlet:
+    multipart:
+      enabled: true
+      #单个数据的大小
+      max-file-size: 100MB
+      #总数据的大小
+      max-request-size: 100MB
+
+fileuploadcomponent :
+  realpath : /rentHouse/ # 上传文件保存的目录
+  picture : picture/ #对应映射的静态资源
+
